@@ -17,8 +17,9 @@ class _Main_pageState extends State<Main_page> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: StreamBuilder<User?>(
-          stream: FirebaseAuth.instance.authStateChanges(),
-          builder: (context, snapshot) {
+        //help to keep persistent connection with firestore database
+          stream: FirebaseAuth.instance.authStateChanges(), //build connection
+          builder: (context, snapshot) {//A DataSnapshot contains data from a Database location.
             if (snapshot.hasData) {//user is loged in or not
               return Home();
             } else {
